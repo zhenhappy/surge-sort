@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>Surge 节点排序</title>
+</head>
+<body>
+<p>
+  Surge节点配置(一行一条配置)：<br/>
+  <textarea id="target" style="width: 100%; overflow: scroll; word-wrap: normal;" rows="10" oninput="startSort(event)" onpropertychange="startSort(event)"></textarea>
+</p>
+<p>
+  排序结果：<br/>
+  <textarea id="result" style="width: 100%; overflow: scroll; word-wrap: normal;" rows="10"></textarea>
+</p>
+<script type="text/javascript">
+  function startSort () {
+    var a = document.getElementById('target').value
+    a = a.split('\n')
+    a.sort()
+    a.sort(function (a, b) {
+      return a.localeCompare(b)
+    })
+    document.getElementById('result').value = a.join('\n')
+  }
+</script>
+</body>
+</html>
